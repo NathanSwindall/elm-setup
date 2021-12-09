@@ -1,0 +1,47 @@
+-Basics
+
+In order to load in a module such as PlayGround.Basic you need to open the elm repl in the src directory and then write the code
+
+    import PlayGround.Basic exposing (..)
+
+In order to output the app we will run 
+
+    elm make src/PhotoGroove.elm --output app.js 
+
+    or on my computer
+
+    elm make src/HelloWorld.elm --outuput app.js
+
+This should be from the client part. If you want an easier way to run these commands you can use nodemon. This will automatically update the command whenever you 
+make a change to the files. The command should be put into your package.json file. 
+
+    "nodemon --exec elm make client/src/HelloWorld.elm --output client/app.js"
+
+When you have a certain elm module you want to put into an html file you will use the script tag as follows. 
+
+     <script>
+        var app = Elm.PlayGround.FirstApp.init({node: document.getElementById("app")})
+    </script>
+
+This script tag is specifically for the PlayGorund.FirstApp module. The command for this specific app would be: 
+
+    elm make src/PlayGround/FirstApp.elm --output app.js
+
+
+
+Commands for different apps 
+
+    FirstApp 
+    var app = Elm.PlayGround.FirstApp.init({node: document.getElementById("app")}) // in html file
+    "elm-dev": "nodemon --exec elm make client/src/PlayGround/FirstApp.elm --output client/app.js",
+
+    P2_Random.elm
+    var app = Elm.PlayGround.P2_Random.init({node: document.getElementById("app")})
+    "elm-dev": "nodemon --exec elm make client/src/PlayGround/P2_Random.elm --output client/app.js",
+    
+    P5_HttpApp.elm
+    var app = Elm.PlayGround.P5_HttpApp.init({node: document.getElementById("app")})
+    "elm-dev": "nodemon --exec elm make client/src/PlayGround/P5_HttpApp.elm --output client/app.js",
+
+
+
